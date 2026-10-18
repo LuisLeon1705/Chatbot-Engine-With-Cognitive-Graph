@@ -1,0 +1,25 @@
+[workspace]
+resolver = "3"
+members = ["crates/i18n", "crates/memory-core", "crates/model-hub", "crates/chats-cli", "src-tauri"]
+
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+rust-version = "1.88"
+
+[workspace.dependencies]
+petgraph = { version = "0.8", default-features = false, features = ["std", "stable_graph"] }
+rkyv = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+parking_lot = "0.12"
+tokio = { version = "1", features = ["rt", "sync", "macros", "time"] }
+# Plain HTTP only: llama-server / Ollama live on localhost, no TLS needed.
+reqwest = { version = "0.13", default-features = false, features = ["json"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

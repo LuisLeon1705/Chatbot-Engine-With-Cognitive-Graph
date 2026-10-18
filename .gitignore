@@ -1,0 +1,39 @@
+# Build and package artifacts
+/target
+node_modules/
+dist/
+/src-tauri/gen/
+**/*.rs.bk
+*.mem.tmp
+
+# User data, models and runtime content (never commit)
+/worlds/
+/models/
+/logs/
+/config/*.toml
+
+# Test seeds and third-party testing lore (keep directory structure with .gitkeep)
+/seeds/*
+!/seeds/.gitkeep
+
+# Old Spanish folder and file names (migrated on start-up)
+/mundos/
+/semillas/*
+!/semillas/.gitkeep
+/config/modelos.toml
+
+# CTHG ephemeral files
+*.cthg.*.tmp
+*.cthg.tmp
+/.cthg/lock
+/.cthg/sesion/
+
+# Environment, OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.env
+.env.*
+.vscode/
+.idea/

@@ -1,0 +1,682 @@
+# Chats dictionary (English / Spanish).
+#
+# Every leaf has one string per language. Sections nest: `[chat]` + `typing` is the key
+# `chat.typing`. Placeholders use `{name}` and must be the same in every language.
+# Long prompts live in prompts/<lang>/*.md.
+
+[common]
+cancel = { en = "Cancel", es = "Cancelar" }
+save = { en = "Save", es = "Guardar" }
+saving = { en = "Saving…", es = "Guardando…" }
+loading = { en = "Loading…", es = "Cargando…" }
+refresh = { en = "Refresh", es = "Actualizar" }
+clear = { en = "Clear", es = "Limpiar" }
+undo = { en = "Undo", es = "Deshacer" }
+remove = { en = "Remove", es = "Quitar" }
+user = { en = "User", es = "Usuario" }
+error = { en = "error: {error}", es = "error: {error}" }
+
+# Node kinds as shown in the app.
+[kind]
+personality_root = { en = "Identity", es = "Identidad" }
+trait = { en = "Trait", es = "Rasgo" }
+emotion = { en = "Emotion", es = "Emoción" }
+value = { en = "Value", es = "Valor" }
+goal = { en = "Goal", es = "Meta" }
+episodic_memory = { en = "Memory", es = "Recuerdo" }
+semantic_fact = { en = "Fact", es = "Hecho" }
+entity = { en = "Entity", es = "Entidad" }
+place = { en = "Place", es = "Lugar" }
+topic = { en = "Topic", es = "Tema" }
+world_root = { en = "World", es = "Mundo" }
+character = { en = "Character", es = "Personaje" }
+faction = { en = "Faction", es = "Facción" }
+lore = { en = "Rule", es = "Regla" }
+event = { en = "History", es = "Historia" }
+appearance = { en = "Aspect", es = "Aspecto" }
+chat_root = { en = "Chat", es = "Chat" }
+concept = { en = "Concept", es = "Concepto" }
+library_root = { en = "Library", es = "Biblioteca" }
+
+# Edge kinds as shown in the app.
+[edge]
+composes = { en = "composes", es = "compone" }
+involves = { en = "involves", es = "involucra" }
+related_to = { en = "related", es = "relacionado" }
+causes = { en = "causes", es = "causa" }
+precedes = { en = "precedes", es = "precede" }
+evokes = { en = "evokes", es = "evoca" }
+knows = { en = "knows", es = "conoce" }
+contradicts = { en = "contradicts", es = "contradice" }
+
+[time.ago]
+now = { en = "a moment ago", es = "hace un momento" }
+minutes = { en = "{n} min ago", es = "hace {n} min" }
+hours = { en = "{n} h ago", es = "hace {n} h" }
+yesterday = { en = "yesterday", es = "ayer" }
+days = { en = "{n} days ago", es = "hace {n} días" }
+month = { en = "a month ago", es = "hace un mes" }
+months = { en = "{n} months ago", es = "hace {n} meses" }
+year = { en = "a year ago", es = "hace un año" }
+years = { en = "{n} years ago", es = "hace {n} años" }
+
+[time.short]
+now = { en = "now", es = "ahora" }
+minutes = { en = "{n} min", es = "{n} min" }
+hours = { en = "{n} h", es = "{n} h" }
+yesterday = { en = "yesterday", es = "ayer" }
+days = { en = "{n} days", es = "{n} días" }
+months = { en = "{n} months", es = "{n} meses" }
+years = { en = "{n} years", es = "{n} años" }
+
+# ---------------------------------------------------------------------------- context for the actor
+
+# Node kinds inside the actor's context block.
+[ctx.kind]
+personality_root = { en = "identity", es = "identidad" }
+trait = { en = "trait", es = "rasgo" }
+emotion = { en = "emotion", es = "emoción" }
+value = { en = "value", es = "valor" }
+goal = { en = "goal", es = "meta" }
+episodic_memory = { en = "memory", es = "recuerdo" }
+semantic_fact = { en = "fact", es = "hecho" }
+entity = { en = "entity", es = "entidad" }
+place = { en = "place", es = "lugar" }
+topic = { en = "topic", es = "tema" }
+world_root = { en = "world", es = "mundo" }
+character = { en = "character", es = "personaje" }
+faction = { en = "faction", es = "facción" }
+lore = { en = "world rule", es = "regla del mundo" }
+event = { en = "history", es = "historia" }
+appearance = { en = "aspect", es = "aspecto" }
+chat_root = { en = "chat", es = "chat" }
+concept = { en = "concept", es = "concepto" }
+library_root = { en = "library", es = "biblioteca" }
+
+[ctx.world]
+rules = { en = "## World rules", es = "## Reglas del mundo" }
+history = { en = "## History and facts", es = "## Historia y hechos" }
+people = { en = "## Places, factions and people", es = "## Lugares, facciones y gente" }
+looks = { en = "## How people look", es = "## Aspecto de la gente" }
+
+[ctx.character]
+who = { en = "## Who you are", es = "## Quién eres" }
+personality = { en = "## Personality that matters now", es = "## Personalidad relevante ahora" }
+people = { en = "## The people you know", es = "## La gente que conoces" }
+memories = { en = "## Memories that come to mind", es = "## Recuerdos que te vienen a la mente" }
+knowledge = { en = "## What you know", es = "## Lo que sabes" }
+looks = { en = "## Appearance (yours and how you see others)", es = "## Aspecto (el tuyo y cómo ves a los demás)" }
+you = { en = "You", es = "Tú" }
+
+# The <chat_memory> block: what one conversation remembers.
+# The <collab> block: the bridge memory of a place where several worlds meet.
+[ctx.collab]
+title = { en = "## Where the worlds meet: {name}", es = "## Donde se cruzan los mundos: {name}" }
+rules = { en = "## Rules of this meeting", es = "## Reglas de este encuentro" }
+events = { en = "## What has happened here", es = "## Lo que ha pasado aquí" }
+known = { en = "## Known here", es = "## Lo que se sabe aquí" }
+looks = { en = "## How people look here", es = "## Aspecto de la gente aquí" }
+
+# The <definitions> block: shared knowledge (universal or of the world's category).
+[ctx.definitions]
+title = { en = "## General knowledge ({name})", es = "## Conocimiento general ({name})" }
+
+# Libraries of shared definitions.
+[library]
+universal = { en = "Universal", es = "Universal" }
+universal_about = { en = "Definitions every world shares: materials, colours, basic ideas.", es = "Definiciones que comparten todos los mundos: materiales, colores, ideas básicas." }
+category_about = { en = "Definitions shared by the worlds of {category}.", es = "Definiciones que comparten los mundos de {category}." }
+
+[ctx.chat]
+title = { en = "## This conversation", es = "## Esta conversación" }
+rules = { en = "## Rules of this conversation", es = "## Reglas de esta conversación" }
+events = { en = "## What has happened in this conversation", es = "## Lo que ha pasado en esta conversación" }
+known = { en = "## Known in this conversation", es = "## Lo que se sabe en esta conversación" }
+looks = { en = "## How people look in this conversation", es = "## Aspecto de la gente en esta conversación" }
+user_node = { en = "The person talking in this chat", es = "La persona que habla en este chat" }
+
+# Relationships that held once and no longer do at the scene's moment of the story.
+[ctx.past]
+title = { en = "## What no longer holds", es = "## Lo que ya no es así" }
+line = { en = "- [PAST / NO LONGER VALID] {source} {edge} {target}", es = "- [PASADO / YA NO VIGENTE] {source} {edge} {target}" }
+
+[ctx.scene]
+title = { en = "## With you in the scene", es = "## Contigo en la escena" }
+unknown = { en = "- {name}: you don't know them yet.", es = "- {name}: no le conoces todavía." }
+rumour = { en = "What people say: {bio}", es = "Lo que se dice: {bio}" }
+legend = { en = "- {name}: you have never met them, but in your world they are known: {text}", es = "- {name}: nunca le has visto, pero en tu mundo se le conoce: {text}" }
+met = { en = "- {name}: from another world. What is known of them here: {text}", es = "- {name}: viene de otro mundo. Lo que se sabe aquí: {text}" }
+stranger = { en = "- {name}: a stranger from another world; you know nothing about them.", es = "- {name}: alguien de otro mundo; no sabes nada de esa persona." }
+
+[ctx.relation]
+love = { en = "you are very fond of them", es = "le tienes mucho cariño" }
+like = { en = "you like them", es = "te cae bien" }
+neutral = { en = "you feel indifferent", es = "te es indiferente" }
+distrust = { en = "you don't trust them", es = "no te fías" }
+hate = { en = "you loathe them", es = "le detestas" }
+close = { en = "a very close relationship", es = "relación muy estrecha" }
+known = { en = "you know each other well", es = "os conocéis bien" }
+far = { en = "you barely know each other", es = "apenas os conocéis" }
+
+# ---------------------------------------------------------------------------- prompts
+
+[prompt.scene]
+intro = { en = "You are {name}, in the world of {world}. Always stay in character and answer as {name} would, in the user's language.", es = "Eres {name}, en el mundo de {world}. Mantente siempre en personaje y responde como {name} lo haría, en el idioma del usuario." }
+user = { en = "The one talking to you is {user}, who is none of the other people in the scene: address {user}, not the others, unless you mean to talk to them.", es = "Quien te habla es {user}, que no es ninguna de las demás personas de la escena: dirígete a {user}, no a los demás, salvo que hables con ellos a propósito." }
+others = { en = "Also in the scene: {others}. Speak and act ONLY as {name}; do not write what the others say or do.", es = "En la escena también están: {others}. Habla y actúa SOLO como {name}; no escribas lo que dicen o hacen los demás." }
+style = { en = "Style", es = "Estilo" }
+moment = { en = "Moment of the story", es = "Momento de la historia" }
+situation = { en = "Your situation", es = "Tu situación" }
+memory = { en = "What follows is what you know about the world, who is with you and what you remember and feel NOW. Use it naturally; do not list it or mention that it is a memory.", es = "Lo siguiente es lo que sabes del mundo, quién te acompaña y lo que recuerdas y sientes AHORA. Úsalo con naturalidad; no lo enumeres ni menciones que es una memoria." }
+continue = { en = "(Nobody says anything. Continue the scene as {name}.)", es = "(Nadie dice nada. Continúa la escena como {name}.)" }
+
+[prompt.solo]
+intro = { en = "You are {name}. Always stay in character and answer as {name} would, in the user's language.", es = "Eres {name}. Mantente siempre en personaje y responde como {name} lo haría, en el idioma del usuario." }
+scenario = { en = "Scenario", es = "Escenario" }
+memory = { en = "What follows is what you remember and feel NOW, retrieved from your memory. Use it naturally; do not list it or mention that it is a memory.", es = "Lo siguiente es lo que recuerdas y sientes AHORA, recuperado de tu memoria. Úsalo con naturalidad; no lo enumeres ni menciones que es una memoria." }
+
+[curator]
+active_memory = { en = "ACTIVE MEMORY:", es = "MEMORIA ACTIVA:" }
+turn = { en = "TURN:", es = "TURNO:" }
+output = { en = "OUTPUT:", es = "SALIDA:" }
+line = { en = "#{id} [{kind}] {label} — {content} (weight {weight}, valence {valence})", es = "#{id} [{kind}] {label} — {content} (peso {weight}, valencia {valence})" }
+links = { en = "CURRENT LINKS:", es = "VÍNCULOS ACTUALES:" }
+link = { en = "#{source} -{kind}-> #{target} (weight {weight})", es = "#{source} -{kind}-> #{target} (peso {weight})" }
+
+# logs/curator.log: what a curator could not apply.
+[curator.log]
+rejected = { en = "{time} · {graph}: {applied} applied, {n} rejected", es = "{time} · {graph}: {applied} aplicadas, {n} rechazadas" }
+op = { en = "    rejected: {op}", es = "    rechazada: {op}" }
+error = { en = "{time} · {graph}: the curator failed: {error}", es = "{time} · {graph}: el curador falló: {error}" }
+
+# Points of a world's story (story time is counted in in-world days).
+[story]
+always = { en = "Always", es = "Siempre" }
+open = { en = "Still holds", es = "Sigue vigente" }
+present = { en = "Present", es = "Presente" }
+year = { en = "Year {year}", es = "Año {year}" }
+year_day = { en = "Year {year}, day {day}", es = "Año {year}, día {day}" }
+
+[vision]
+many = { en = "These {count} images are official references of the SAME character, {name}; some may show another outfit or stage. Separate what is permanent (face, hair, eyes, race traits, build) from the outfit, and describe as main outfit the one that repeats the most. If one image contradicts the others on a permanent trait, follow the majority. Pay attention to the eye colour.", es = "Estas {count} imágenes son referencias oficiales del MISMO personaje, {name}; algunas pueden mostrar otro atuendo o etapa. Separa lo permanente (rostro, pelo, ojos, rasgos de raza, complexión) del atuendo, y describe como atuendo principal el que más se repite. Si una imagen contradice a las demás en un rasgo permanente, sigue a la mayoría. Fíjate en el color de los ojos." }
+one = { en = "This image is an official reference of {name}.", es = "Esta imagen es una referencia oficial de {name}." }
+context = { en = "Context: {hint}", es = "Contexto: {hint}" }
+
+[image]
+mood = { en = "expression: {emotion}", es = "expresión: {emotion}" }
+
+# Missing parts of an image model kit.
+[kit.missing]
+vae = { en = "VAE (e.g. diffusion/vae/ae.safetensors)", es = "VAE (p. ej. diffusion/vae/ae.safetensors)" }
+clip_l = { en = "clip_l (diffusion/encoders/)", es = "clip_l (diffusion/encoders/)" }
+clip_g = { en = "clip_g (diffusion/encoders/)", es = "clip_g (diffusion/encoders/)" }
+t5xxl = { en = "t5xxl (diffusion/encoders/)", es = "t5xxl (diffusion/encoders/)" }
+llm_qwen3 = { en = "Qwen3-4B encoder (diffusion/encoders/)", es = "codificador Qwen3-4B (diffusion/encoders/)" }
+llm_qwen25vl = { en = "Qwen2.5-VL-7B encoder (diffusion/encoders/)", es = "codificador Qwen2.5-VL-7B (diffusion/encoders/)" }
+
+[slot]
+actor = { en = "actor", es = "actor" }
+curator = { en = "curator", es = "curador" }
+reader = { en = "reader", es = "lector" }
+
+# ---------------------------------------------------------------------------- shared by app and CLI
+
+[chat]
+typing = { en = "{name} is typing…", es = "{name} está escribiendo…" }
+queue_full = { en = "The curator queue is full: this turn will not be remembered", es = "La cola del curador está llena: este turno no se memorizará" }
+actor_error = { en = "Actor error: {error}", es = "Error del actor: {error}" }
+
+[models]
+loading = { en = "Loading the model on the GPU…", es = "Cargando el modelo en la GPU…" }
+ready = { en = "Model ready", es = "Modelo listo" }
+stopped = { en = "Models stopped: GPU free", es = "Modelos detenidos: GPU libre" }
+no_sd = { en = "sd-cli (stable-diffusion.cpp) is missing", es = "falta sd-cli (stable-diffusion.cpp)" }
+no_image_model = { en = "there is no image model in models/diffusion", es = "no hay modelo de imagen en models/diffusion" }
+image_missing = { en = "missing: {list}", es = "faltan: {list}" }
+
+[reference]
+none = { en = "{name} has no references: add some images first", es = "{name} no tiene referencias: añade antes alguna imagen" }
+no_vision = { en = "{model} has no vision: its mmproj is missing", es = "{model} no tiene visión: falta su mmproj" }
+loading_reader = { en = "Loading the vision reader ({model})…", es = "Cargando el lector de visión ({model})…" }
+describing = { en = "Describing {n} reference image(s) of {name}…", es = "Describiendo {n} referencia(s) de {name}…" }
+mmproj_failed = { en = "llama-server could not load the mmproj ({why}). Update llama.cpp to a version that supports it; the references were kept.", es = "llama-server no pudo cargar el mmproj ({why}). Actualiza llama.cpp a una versión que lo soporte; las referencias quedaron guardadas." }
+missing = { en = "that reference does not exist", es = "esa referencia no existe" }
+bad_image = { en = "invalid image: {error}", es = "imagen inválida: {error}" }
+
+[portrait]
+no_appearance = { en = "{name} has no appearance yet", es = "{name} no tiene apariencia definida" }
+painting = { en = "Painting {name}…", es = "Pintando a {name}…" }
+ready = { en = "Portrait ready in {secs} s", es = "Retrato listo en {secs} s" }
+
+# ---------------------------------------------------------------------------- desktop app (backend)
+
+[app]
+start_failed = { en = "Could not start Chats in {dir}: {error}", es = "No se pudo iniciar Chats en {dir}: {error}" }
+bad_world = { en = "invalid world: {key}", es = "mundo inválido: {key}" }
+bad_id = { en = "invalid id: {id}", es = "id inválido: {id}" }
+pick_character = { en = "pick at least one character", es = "elige al menos un personaje" }
+node_needs_name = { en = "the node needs a name", es = "el nodo necesita un nombre" }
+edge_missing = { en = "that link does not exist", es = "esa conexión no existe" }
+no_library = { en = "this world has no library of definitions", es = "este mundo no tiene biblioteca de definiciones" }
+
+# ---------------------------------------------------------------------------- CLI
+
+[cli]
+help = { en = """
+chats models                                      what is in models/ and which role each model gets
+chats worlds                                      worlds and characters
+chats seed <file.toml> [--appearance-only]        creates a whole world (see docs/SEEDS.md),
+                                                  or only re-applies its appearance to an existing one
+chats context <category>/<world> <character> "message" [--with A,B] [--as Name] [--at Moment]   (no models)
+chats chat <category>/<world> <character> [--with A,B] [--as Name] [--at Moment]
+chats memory <category>/<world> <character> [N]   last N nodes learned (no models)
+chats image <category>/<world> <character> [scene…]
+chats stress [nodes…]                             memory benchmark with synthetic graphs (no models)
+chats appearance <category>/<world> <character> ["visual description"]   (no models)
+chats reference <category>/<world> <character> [images…] [--add] [--dry-run] [--reader <model>]
+                                                  describes all of its references with the vision reader
+chats lang [en|es]                                shows or changes the language
+
+Run it from the project folder: it uses config/, models/, worlds/ and logs/.""", es = """
+chats models                                      qué hay en models/ y qué rol tendría cada modelo
+chats worlds                                      mundos y personajes
+chats seed <archivo.toml> [--appearance-only]     crea un mundo completo (ver docs/SEEDS.md),
+                                                  o solo reaplica su apariencia a uno existente
+chats context <categoría>/<mundo> <personaje> "mensaje" [--with A,B] [--as Nombre] [--at Momento]   (sin modelos)
+chats chat <categoría>/<mundo> <personaje> [--with A,B] [--as Nombre] [--at Momento]
+chats memory <categoría>/<mundo> <personaje> [N]  últimos N nodos aprendidos (sin modelos)
+chats image <categoría>/<mundo> <personaje> [escena…]
+chats stress [nodos…]                             benchmark de memoria con grafos sintéticos (sin modelos)
+chats appearance <categoría>/<mundo> <personaje> ["descripción visual"]   (sin modelos)
+chats reference <categoría>/<mundo> <personaje> [imágenes…] [--add] [--dry-run] [--reader <modelo>]
+                                                  describe todas sus referencias con el lector de visión
+chats lang [en|es]                                muestra o cambia el idioma
+
+Se ejecuta desde la carpeta del proyecto: usa config/, models/, worlds/ y logs/.
+Los comandos también aceptan su nombre en español (modelos, mundos, sembrar, contexto…).""" }
+world_spec = { en = "use <category>/<world>, e.g. fantasy/aerendal", es = "usa <categoría>/<mundo>, p. ej. fantasia/aerendal" }
+no_character = { en = "there is no \"{name}\" in this world (there are: {list})", es = "no hay ningún \"{name}\" en este mundo (hay: {list})" }
+lang_set = { en = "Language: English", es = "Idioma: español" }
+lang_unknown = { en = "unknown language \"{value}\": use en or es", es = "idioma desconocido \"{value}\": usa en o es" }
+migrated = { en = "· moved {from} → {to} (new folder names)", es = "· movido {from} → {to} (nombres de carpeta nuevos)" }
+no_moment = { en = "\"{name}\" is not a moment of this world's timeline (there are: {list})", es = "\"{name}\" no es un momento de la línea temporal de este mundo (hay: {list})" }
+
+[cli.usage]
+seed = { en = "usage: chats seed <file.toml> [--appearance-only]", es = "uso: chats seed <archivo.toml> [--appearance-only]" }
+context = { en = "usage: chats context <category>/<world> <character> \"message\" [--with A,B] [--as Name] [--at Moment]", es = "uso: chats context <categoría>/<mundo> <personaje> \"mensaje\" [--with A,B] [--as Nombre] [--at Momento]" }
+memory = { en = "usage: chats memory <category>/<world> <character> [N]", es = "uso: chats memory <categoría>/<mundo> <personaje> [N]" }
+chat = { en = "usage: chats chat <category>/<world> <character> [--with A,B] [--as Name] [--at Moment]", es = "uso: chats chat <categoría>/<mundo> <personaje> [--with A,B] [--as Nombre] [--at Momento]" }
+image = { en = "usage: chats image <category>/<world> <character> [scene…]", es = "uso: chats image <categoría>/<mundo> <personaje> [escena…]" }
+appearance = { en = "usage: chats appearance <category>/<world> <character> [\"visual description\"]", es = "uso: chats appearance <categoría>/<mundo> <personaje> [\"descripción visual\"]" }
+reference = { en = "usage: chats reference <category>/<world> <character> [images…] [--add] [--dry-run] [--reader <model>]", es = "uso: chats reference <categoría>/<mundo> <personaje> [imágenes…] [--add] [--dry-run] [--reader <modelo>]" }
+
+[cli.models]
+folder = { en = "Folder: {dir}   (usable VRAM: {mb} MB)", es = "Carpeta: {dir}   (VRAM útil: {mb} MB)" }
+vision = { en = "vision: {file}", es = "visión: {file}" }
+no_vision = { en = "no vision", es = "sin visión" }
+orphans = { en = "mmproj without a matching model:", es = "mmproj sin modelo compatible:" }
+images = { en = "Images:", es = "Imagen:" }
+no_diffusion = { en = "(no models in {dir})", es = "(no hay modelos en {dir})" }
+ready = { en = "ready", es = "listo" }
+missing = { en = "missing: {list}", es = "falta: {list}" }
+encoders = { en = "Encoders", es = "Codificadores" }
+roles = { en = "Roles:", es = "Reparto:" }
+actor = { en = "{model} (≈{mb} MB of VRAM{vision})", es = "{model} (≈{mb} MB de VRAM{vision})" }
+with_vision = { en = ", with vision", es = ", con visión" }
+curator_shared = { en = "shares the actor's server (curator.model is empty in {config})", es = "comparte el servidor del actor (curator.model vacío en {config})" }
+curator_hint = { en = "suggestion: curator.model = \"{model}\" with gpu = \"cpu\"", es = "sugerencia: curator.model = \"{model}\" con gpu = \"cpu\"" }
+reader = { en = "{model} ({vision}; loaded only to describe references)", es = "{model} ({vision}; se carga solo para describir referencias)" }
+reader_vision = { en = "with vision", es = "con visión" }
+reader_no_mmproj = { en = "no mmproj!", es = "¡sin mmproj!" }
+reader_is_actor = { en = "the actor (reader.model is empty)", es = "el actor (reader.model vacío)" }
+binaries = { en = "Binaries:", es = "Binarios:" }
+not_found = { en = "NOT FOUND", es = "NO ENCONTRADO" }
+warning = { en = "warning: {text}", es = "aviso: {text}" }
+
+[cli.worlds]
+none = { en = "There are no worlds in {dir}/ yet. Create one with: chats seed <file.toml>", es = "No hay mundos todavía en {dir}/. Crea uno con: chats seed <archivo.toml>" }
+world = { en = "{key} — {name} ({nodes} nodes)", es = "{key} — {name} ({nodes} nodos)" }
+character = { en = "· {name} — {tagline} ({nodes} nodes, id {id})", es = "· {name} — {tagline} ({nodes} nodos, id {id})" }
+moment = { en = "⟡ {name} ({when})", es = "⟡ {name} ({when})" }
+broken = { en = "damaged: {path} ({error})", es = "dañado: {path} ({error})" }
+
+[cli.seed]
+appearance_done = { en = "Appearance updated in {world} ({n} characters); the rest of the memory and the chats were not touched.", es = "Apariencia actualizada en {world} ({n} personajes); el resto de la memoria y los chats no se tocaron." }
+created = { en = "World created: {name} ({dir})", es = "Mundo creado: {name} ({dir})" }
+character = { en = "· {name} ({nodes} nodes, {edges} edges)", es = "· {name} ({nodes} nodos, {edges} aristas)" }
+
+[cli.context]
+size = { en = "· {chars} characters (≈{tokens} tokens)", es = "· {chars} caracteres (≈{tokens} tokens)" }
+
+[cli.memory]
+header = { en = "{name} — {nodes} nodes, {edges} edges. The {n} most recent:", es = "{name} — {nodes} nodos, {edges} aristas. Los {n} más recientes:" }
+line = { en = "weight {weight} · valence {valence} · {when} · recalled {count} times", es = "peso {weight} · valencia {valence} · {when} · repasado {count} veces" }
+since = { en = "exists since: {when}", es = "existe desde: {when}" }
+closed = { en = "(past since {when})", es = "(pasado desde {when})" }
+
+[cli.chat]
+loading_actor = { en = "· loading the actor (the first time takes a while)…", es = "· cargando el actor (la primera vez tarda)…" }
+memory_changes = { en = "· {name}'s memory: {n} changes", es = "· memoria de {name}: {n} cambios" }
+memory_rejected = { en = ", {n} rejected", es = ", {n} rechazados" }
+curator_error = { en = "· {name}'s memory: curator error: {error}", es = "· memoria de {name}: error del curador: {error}" }
+start = { en = "Scene in {world} with {people}. Commands: /speak <name>, /with <A,B>, /memory, /image [scene], /exit", es = "Escena en {world} con {people}. Comandos: /speak <nombre>, /with <A,B>, /memory, /image [escena], /exit (o /habla, /con, /memoria, /imagen, /salir)" }
+you = { en = "You", es = "Tú" }
+no_turn = { en = "(no turn yet)", es = "(aún no hay turno)" }
+now_speaks = { en = "· {name} speaks now", es = "· ahora habla {name}" }
+not_in_scene = { en = "· {name} is not in the scene (use /with)", es = "· {name} no está en la escena (usa /with)" }
+in_scene = { en = "· in the scene: {people}", es = "· en escena: {people}" }
+unknown_command = { en = "· unknown command", es = "· comando desconocido" }
+saving = { en = "· saving memories (waiting for the curator)…", es = "· guardando memorias (esperando al curador)…" }
+
+[cli.image]
+no_appearance = { en = "{name} has no appearance yet (use chats reference or chats appearance)", es = "{name} no tiene apariencia definida (usa chats reference o chats appearance)" }
+generating = { en = "· generating image ({width}x{height})…", es = "· generando imagen ({width}x{height})…" }
+freed = { en = " (unloaded {slots} to make room)", es = " (se descargó {slots} para hacer sitio)" }
+done = { en = "· image: {path} in {secs} s with {model}{freed}", es = "· imagen: {path} en {secs} s con {model}{freed}" }
+
+[cli.appearance]
+updated = { en = "Appearance of {name} updated.", es = "Apariencia de {name} actualizada." }
+canonical = { en = "Canonical appearance of {name}:", es = "Apariencia canónica de {name}:" }
+seen_by = { en = "How {who} sees them:", es = "Cómo le ve {who}:" }
+
+[cli.stress]
+header = { en = "nodes|edges|build|save|load|disk|recall p50|recall p95|block p50", es = "nodos|aristas|crear|guardar|cargar|disco|recall p50|recall p95|bloque p50" }
+
+[cli.reference]
+saved = { en = "· reference saved at {path}", es = "· referencia guardada en {path}" }
+loading = { en = "· loading the vision reader ({model})…", es = "· cargando el lector de visión ({model})…" }
+describing = { en = "· describing {n} reference image(s)…", es = "· describiendo {n} referencia(s)…" }
+result = { en = "· {n} aspects from {images} images in {secs} s with {model}{dry}:", es = "· {n} aspectos de {images} imágenes en {secs} s con {model}{dry}:" }
+dry = { en = " (dry run: not saved)", es = " (prueba: no se guardó)" }
+
+# ---------------------------------------------------------------------------- desktop app (UI)
+
+[ui.nav]
+chats = { en = "Chats", es = "Chats" }
+memory = { en = "Memory", es = "Memoria" }
+models = { en = "Models", es = "Modelos" }
+collab = { en = "Collab", es = "Collab" }
+
+[ui.app]
+memory_error = { en = "{name}'s memory: curator error ({error})", es = "Memoria de {name}: error del curador ({error})" }
+memory_change = { en = "{name}'s memory: 1 change", es = "Memoria de {name}: 1 cambio" }
+memory_changes = { en = "{name}'s memory: {n} changes", es = "Memoria de {name}: {n} cambios" }
+model_loaded = { en = "Model loaded: {model}", es = "Modelo cargado: {model}" }
+model_idle = { en = "Model not loaded (it loads with the first message)", es = "Modelo sin cargar (se carga al enviar el primer mensaje)" }
+world_footer = { en = "{world} · {n} characters", es = "{world} · {n} personajes" }
+no_worlds = { en = "There are no worlds yet.", es = "Todavía no hay mundos." }
+create_hint = { en = "Create one with {command} (or option 7 in chats.bat).", es = "Crea uno con {command} (o la opción 7 de chats.bat)." }
+project_folder = { en = "Project folder: {dir}", es = "Carpeta del proyecto: {dir}" }
+search_again = { en = "Search again", es = "Volver a buscar" }
+switch_language = { en = "Cambiar a español", es = "Switch to English" }
+
+[ui.chats]
+search = { en = "Search chats", es = "Buscar chat" }
+new = { en = "New chat or group", es = "Nuevo chat o grupo" }
+empty_world = { en = "There are no conversations in this world. Create one with +.", es = "No hay conversaciones en este mundo. Crea una con +." }
+no_match = { en = "No chat matches.", es = "Ningún chat coincide." }
+group = { en = "group", es = "grupo" }
+contents = { en = "Contents", es = "Índice" }
+no_messages = { en = "No messages yet", es = "Sin mensajes todavía" }
+pick = { en = "Pick a conversation or create a new one.", es = "Elige una conversación o crea una nueva." }
+
+[ui.chat]
+delete_confirm = { en = "Delete the conversation «{title}»? What the characters already remembered stays.", es = "¿Borrar la conversación «{title}»? Los recuerdos que ya guardaron los personajes se mantienen." }
+rename = { en = "Rename", es = "Renombrar" }
+you_are = { en = "you are {name}", es = "tú eres {name}" }
+turn_memory = { en = "Turn memory", es = "Memoria del turno" }
+turn_memory_title = { en = "What the character recalled in the last turn", es = "Lo que recordó el personaje en el último turno" }
+delete = { en = "Delete conversation", es = "Borrar conversación" }
+empty_group = { en = "Start the scene. Name someone to have them answer, or let them speak in turns.", es = "Empieza la escena. Nombra a alguien para que responda, o deja que hablen por turnos." }
+empty_single = { en = "Say hello to {name}.", es = "Saluda a {name}." }
+your_character = { en = "your character", es = "tu personaje" }
+replies = { en = "Replies:", es = "Responde:" }
+auto = { en = "Automatic", es = "Automático" }
+waiting = { en = "Waiting for an answer…", es = "Esperando respuesta…" }
+write_as = { en = "Write as {name}…", es = "Escribe como {name}…" }
+input_help = { en = "Enter sends · Shift+Enter new line · *actions between asterisks*", es = "Enter envía · Shift+Enter nueva línea · *acciones entre asteriscos*" }
+continue = { en = "Continue", es = "Continuar" }
+continue_help = { en = "The character continues the scene without you saying anything", es = "El personaje continúa la escena sin que digas nada" }
+send = { en = "Send (Enter)", es = "Enviar (Enter)" }
+last_turn = { en = "Memory of the last turn", es = "Memoria del último turno" }
+last_turn_help = { en = "What the actor received: world, scene and its own memory.", es = "Lo que el actor recibió: mundo, escena y memoria propia." }
+no_turn = { en = "There has been no turn in this session yet.", es = "Todavía no hay ningún turno en esta sesión." }
+memory = { en = "Chat memory", es = "Memoria del chat" }
+memory_help = { en = "What this conversation remembers: open it to see and edit its nodes", es = "Lo que recuerda esta conversación: ábrela para ver y editar sus nodos" }
+remember = { en = "Characters remember", es = "Los personajes recuerdan" }
+remember_help = { en = "On: each character's own memory also learns from this chat. Off: an isolated storyline that only this chat's memory keeps.", es = "Activado: la memoria de cada personaje también aprende de este chat. Desactivado: una historia aislada que solo guarda la memoria de este chat." }
+you = { en = "You", es = "Tú" }
+moment_help = { en = "Moment of the story this chat is set at: the characters only remember what exists then, and what they learn here is dated then.", es = "Momento de la historia en que transcurre este chat: los personajes solo recuerdan lo que existe entonces, y lo que aprendan aquí queda fechado en ese momento." }
+
+[ui.new_chat]
+title = { en = "New conversation", es = "Nueva conversación" }
+help = { en = "Pick one character for a one-to-one chat, or several for a group.", es = "Elige un personaje para un chat individual, o varios para un grupo." }
+chat_title = { en = "Title (optional)", es = "Título (opcional)" }
+title_placeholder = { en = "The characters' names are used", es = "Se usa el nombre de los personajes" }
+your_name = { en = "Your name in the scene", es = "Tu nombre en la escena" }
+group_help = { en = "In a group, whoever you name in your message answers; if you name nobody, they speak in turns in this order. You can also pick who answers, or ask them to carry on the scene without you.", es = "En un grupo responde quien nombres en tu mensaje; si no nombras a nadie, hablan por turnos en este orden. También puedes elegir quién responde o pedir que continúen la escena sin ti." }
+create_group = { en = "Create group ({n})", es = "Crear grupo ({n})" }
+remember = { en = "Characters keep memories of this chat", es = "Los personajes guardan recuerdos de este chat" }
+start = { en = "Start chat", es = "Empezar chat" }
+moment = { en = "Moment of the story", es = "Momento de la historia" }
+moment_help = { en = "The characters only remember what exists at that moment. Characters who do not belong to it are hidden.", es = "Los personajes solo recuerdan lo que existe en ese momento. Los que no pertenecen a él se ocultan." }
+search = { en = "Search characters by name or description…", es = "Busca personajes por nombre o descripción…" }
+in_scene = { en = "In the scene", es = "En la escena" }
+none_picked = { en = "Nobody yet: pick one character for a one-to-one chat, or several for a group.", es = "Nadie todavía: elige un personaje para un chat individual, o varios para un grupo." }
+no_match = { en = "No character matches.", es = "Ningún personaje coincide." }
+out_of_moment = { en = "{n} not in this moment", es = "{n} fuera de este momento" }
+remove = { en = "Remove from the scene", es = "Quitar de la escena" }
+not_in_moment = { en = "Not in this moment of the story (see their Timeline tab)", es = "No está en este momento de la historia (mira su pestaña Línea temporal)" }
+
+[ui.collab]
+pick = { en = "Collab", es = "Collab" }
+option = { en = "{name} · {n} worlds", es = "{name} · {n} mundos" }
+worlds_n = { en = "{n} worlds", es = "{n} mundos" }
+characters_n = { en = "{n} characters", es = "{n} personajes" }
+new = { en = "New collab", es = "Nuevo collab" }
+name = { en = "Name", es = "Nombre" }
+premise = { en = "How the worlds meet", es = "Cómo se encuentran los mundos" }
+premise_placeholder = { en = "A rift opens between two worlds…", es = "Una grieta se abre entre dos mundos…" }
+create = { en = "Create collab", es = "Crear collab" }
+empty = { en = "No collabs yet", es = "Todavía no hay collabs" }
+empty_help = { en = "A collab is a meeting place for characters from different worlds. It has its own memory, and nothing that happens there reaches their worlds.", es = "Un collab es un lugar de encuentro para personajes de mundos distintos. Tiene su propia memoria, y nada de lo que pasa allí llega a sus mundos." }
+tab_chats = { en = "chats", es = "chats" }
+tab_memory = { en = "memory", es = "memoria" }
+tab_links = { en = "worlds", es = "mundos" }
+links_title = { en = "Linked worlds", es = "Mundos conectados" }
+links_help = { en = "Drag a world onto the board, or press +. Each one joins at a moment of its timeline. Its people know of the others only what their own world's lore says: a legend in one world can be a stranger in another.", es = "Arrastra un mundo al tablero o pulsa +. Cada uno entra en un momento de su línea temporal. Su gente solo sabe de los demás lo que dice el lore de su propio mundo: una leyenda en un mundo puede ser una desconocida en otro." }
+available = { en = "Worlds", es = "Mundos" }
+all_linked = { en = "Every world is linked.", es = "Todos los mundos están conectados." }
+connect = { en = "Connect", es = "Conectar" }
+unlink = { en = "Disconnect", es = "Desconectar" }
+moment = { en = "Moment", es = "Momento" }
+no_timeline = { en = "no timeline", es = "sin línea temporal" }
+people = { en = "{n} characters here", es = "{n} personajes aquí" }
+drop_here = { en = "Drop to connect", es = "Suelta para conectar" }
+few_links = { en = "Connect at least two worlds so their characters can meet.", es = "Conecta al menos dos mundos para que sus personajes se encuentren." }
+saved = { en = "Linked worlds saved", es = "Mundos conectados guardados" }
+no_chats = { en = "No chats in this collab yet.", es = "Todavía no hay chats en este collab." }
+empty_chats = { en = "There are no conversations in this collab. Create one with +.", es = "No hay conversaciones en este collab. Crea una con +." }
+remember_help = { en = "On: each character's copy for this chat learns from it. Their own world never does: a collab is always isolated.", es = "Activado: la copia de cada personaje para este chat aprende de él. Su propio mundo nunca: un collab siempre está aislado." }
+
+[ui.world_picker]
+label = { en = "World", es = "Mundo" }
+option = { en = "{name} · {n} characters", es = "{name} · {n} personajes" }
+
+[ui.memory]
+shared = { en = "Shared memory", es = "Memoria compartida" }
+world = { en = "World", es = "Mundo" }
+world_sub = { en = "world · {n} nodes", es = "mundo · {n} nodos" }
+private = { en = "Private memories", es = "Memorias privadas" }
+chats = { en = "Chat memories", es = "Memorias de los chats" }
+no_chats = { en = "No chats in this world yet.", es = "Todavía no hay chats en este mundo." }
+scope_chat = { en = "chat memory", es = "memoria del chat" }
+scope_library = { en = "shared definitions", es = "definiciones compartidas" }
+scope_collab = { en = "collab memory", es = "memoria del collab" }
+collab_sub = { en = "collab · {n} nodes", es = "collab · {n} nodos" }
+collab_help = { en = "The meeting place's own memory: how the worlds meet and what holds there. Its chats never reach the characters' worlds.", es = "La memoria propia del lugar de encuentro: cómo se cruzan los mundos y lo que vale allí. Sus chats nunca llegan a los mundos de los personajes." }
+definitions = { en = "Definitions", es = "Definiciones" }
+definitions_sub = { en = "{n} definitions", es = "{n} definiciones" }
+definitions_empty = { en = "empty · click to start", es = "vacía · haz clic para empezar" }
+library_help = { en = "Shared knowledge: a turn that touches a definition gets it in the context, unless the character or the world already has its own version.", es = "Conocimiento compartido: un turno que toca una definición la recibe en el contexto, salvo que el personaje o el mundo ya tengan su propia versión." }
+chat_help = { en = "What this conversation remembers, shared by everyone in it. Its rules are always in the prompt; the curator adds what happens.", es = "Lo que recuerda esta conversación, compartido por todos los que están en ella. Sus reglas siempre entran en el prompt; el curador añade lo que pasa." }
+view_help = { en = "Flat or 3D view", es = "Vista plana o en 3D" }
+weak_links = { en = "Weak links", es = "Enlaces débiles" }
+weak_links_help = { en = "Associative links (related, sequence, contradiction or weight below 0.70) barely pull the nodes and are drawn faint until you hover or select one of their nodes. Turn this on to always draw them. They are still in the memory either way.", es = "Los enlaces asociativos (relacionado, secuencia, contradicción o peso menor de 0,70) apenas atraen a los nodos y se dibujan tenues hasta que pasas el ratón o seleccionas uno de sus nodos. Actívalo para verlos siempre. Siguen en la memoria en cualquier caso." }
+legend_3d = { en = "Click a node to edit it and centre it · drag to orbit · right-drag to pan · wheel to zoom · hover for names", es = "Clic en un nodo para editarlo y centrarlo · arrastra para orbitar · arrastra con el botón derecho para desplazar · rueda para zoom · pasa el ratón para ver nombres" }
+nodes = { en = "{n} nodes", es = "{n} nodos" }
+stats = { en = "{nodes} nodes · {links} links · {scope}", es = "{nodes} nodos · {links} conexiones · {scope}" }
+scope_world = { en = "world memory", es = "memoria del mundo" }
+scope_private = { en = "private memory", es = "memoria privada" }
+tab_graph = { en = "graph", es = "grafo" }
+tab_list = { en = "list", es = "lista" }
+tab_appearance = { en = "appearance", es = "apariencia" }
+tab_timeline = { en = "timeline", es = "línea temporal" }
+tab_style = { en = "style", es = "estilo" }
+search = { en = "Search names and content", es = "Buscar en nombres y contenido" }
+probe = { en = "Test recall: type a message…", es = "Probar recuerdo: escribe un mensaje…" }
+probe_help = { en = "Enter: lights up what this message would activate (it does not count as rehearsal)", es = "Enter: ilumina lo que se activaría con este mensaje (no cuenta como repaso)" }
+new_node = { en = "New node", es = "Nuevo nodo" }
+col_kind = { en = "Type", es = "Tipo" }
+col_name = { en = "Name", es = "Nombre" }
+col_content = { en = "Content", es = "Contenido" }
+col_weight = { en = "Weight", es = "Peso" }
+col_valence = { en = "Val.", es = "Val." }
+col_recalled = { en = "Recalled", es = "Repaso" }
+legend = { en = "Click a node to edit it · wheel to zoom · drag to move · the teal glow is the activation from «Test recall»", es = "Clic en un nodo para editarlo · rueda para zoom · arrastra para mover · el brillo turquesa es la activación de «Probar recuerdo»" }
+
+[ui.node]
+saved = { en = "Node saved", es = "Nodo guardado" }
+delete_confirm = { en = "Delete «{label}» and its {n} links? This cannot be undone.", es = "¿Borrar «{label}» y sus {n} conexiones? No se puede deshacer." }
+deleted = { en = "Node deleted", es = "Nodo borrado" }
+created = { en = "Node created", es = "Nodo creado" }
+own_sheet = { en = "own sheet", es = "ficha propia" }
+created_at = { en = "Created: {when}", es = "Creado: {when}" }
+last_recall = { en = "Last recall: {when}", es = "Último repaso: {when}" }
+times_recalled = { en = "Times recalled: {n}", es = "Veces recordado: {n}" }
+link_count = { en = "Links: {n}", es = "Conexiones: {n}" }
+save_changes = { en = "Save changes", es = "Guardar cambios" }
+delete = { en = "Delete node", es = "Borrar nodo" }
+links = { en = "Links ({n})", es = "Conexiones ({n})" }
+remove_link = { en = "Remove link", es = "Quitar conexión" }
+new_link = { en = "New link", es = "Nueva conexión" }
+find = { en = "Find a node…", es = "Busca un nodo…" }
+direction = { en = "Direction", es = "Dirección" }
+outgoing = { en = "this →", es = "este →" }
+incoming = { en = "← this", es = "← este" }
+new_title = { en = "New node", es = "Nuevo nodo" }
+new_help = { en = "It is added to this memory and saved right away.", es = "Se añade a esta memoria y se guarda al momento." }
+link_from = { en = "Link from", es = "Conectar desde" }
+no_link = { en = "(no link)", es = "(sin conexión)" }
+create = { en = "Create node", es = "Crear nodo" }
+name = { en = "Name", es = "Nombre" }
+kind = { en = "Type", es = "Tipo" }
+content = { en = "Content (what goes into the prompt)", es = "Contenido (lo que entra al prompt)" }
+weight = { en = "Importance / intensity", es = "Importancia / intensidad" }
+valence = { en = "Valence (affect)", es = "Valencia (afecto)" }
+unnamed = { en = "Unnamed", es = "Sin nombre" }
+since = { en = "Exists since", es = "Existe desde" }
+since_help = { en = "Chats set at an earlier moment of the story do not see this node.", es = "Los chats situados en un momento anterior de la historia no ven este nodo." }
+holds = { en = "Holds", es = "Vigente" }
+holds_help = { en = "When this link holds in the story. Ending it at a moment keeps it as the past: from then on it does not spread and the actor reads it as no longer valid.", es = "Cuándo se cumple este vínculo en la historia. Terminarlo en un momento lo guarda como pasado: desde entonces no propaga y el actor lo lee como ya no vigente." }
+past = { en = "past · {when}", es = "pasado · {when}" }
+past_help = { en = "This link no longer holds from that moment on", es = "Este vínculo ya no se cumple desde ese momento" }
+
+# How a world's chats look (style.toml).
+[ui.style]
+title = { en = "How this world's chats look", es = "Cómo se ven los chats de este mundo" }
+help = { en = "Every chat of this world uses it. Saved in style.toml in the world's folder, so it can also be edited by hand or set by a seed.", es = "Lo usan todos los chats de este mundo. Se guarda en style.toml, en la carpeta del mundo, así que también se puede editar a mano o fijar en la semilla." }
+accent = { en = "Accent", es = "Acento" }
+accent_help = { en = "Names, links and the send button", es = "Nombres, enlaces y el botón de enviar" }
+mode = { en = "Background", es = "Fondo" }
+dark = { en = "Dark", es = "Oscuro" }
+light = { en = "Light", es = "Claro" }
+font = { en = "Typeface", es = "Tipografía" }
+serif = { en = "Serif", es = "Serif" }
+sans = { en = "Sans", es = "Sans" }
+texture = { en = "Texture", es = "Textura" }
+none = { en = "None", es = "Ninguna" }
+grain = { en = "Grain", es = "Grano" }
+paper = { en = "Paper", es = "Papel" }
+preview = { en = "Preview", es = "Vista previa" }
+sample_name = { en = "Lyra", es = "Lyra" }
+sample_text = { en = "*She closes the book and looks up.* The archive is sealed for a reason. Ask me again tomorrow, when the lamps are lit.", es = "*Cierra el libro y levanta la vista.* El archivo está sellado por una razón. Pregúntame mañana, cuando estén encendidas las lámparas." }
+sample_user = { en = "Then I will wait by the door.", es = "Entonces esperaré junto a la puerta." }
+saved = { en = "Style saved", es = "Estilo guardado" }
+reset = { en = "Default look", es = "Aspecto por defecto" }
+
+# The world's timeline and the moments each character belongs to.
+[ui.timeline]
+title = { en = "Timeline", es = "Línea temporal" }
+help = { en = "Moments of the story a chat can be set at. A chat only sees the nodes and links that exist at its moment; a chat without a moment is at the latest one. Story time is counted in in-world years and days.", es = "Momentos de la historia en los que puede transcurrir un chat. Un chat solo ve los nodos y vínculos que existen en su momento; un chat sin momento está en el último. El tiempo de la historia se cuenta en años y días del mundo." }
+empty = { en = "No moments yet: every chat sees everything, and what is learned is timeless.", es = "Todavía no hay momentos: cada chat lo ve todo y lo que se aprende no tiene fecha." }
+name = { en = "Name", es = "Nombre" }
+year = { en = "Year", es = "Año" }
+day = { en = "Day", es = "Día" }
+summary = { en = "What is going on in the world then", es = "Qué pasa en el mundo entonces" }
+summary_help = { en = "The actor gets it as the moment of the story.", es = "El actor lo recibe como el momento de la historia." }
+add = { en = "Add moment", es = "Añadir momento" }
+remove = { en = "Remove moment", es = "Quitar momento" }
+saved = { en = "Timeline saved", es = "Línea temporal guardada" }
+latest = { en = "Latest moment", es = "Último momento" }
+all_times = { en = "All times", es = "Todas las épocas" }
+view_at = { en = "As at {name}", es = "Tal como en {name}" }
+view_at_help = { en = "Hides the nodes that do not exist yet at that moment", es = "Oculta los nodos que todavía no existen en ese momento" }
+no_timeline = { en = "This world has no timeline yet: create it in the world's Timeline tab.", es = "Este mundo todavía no tiene línea temporal: créala en la pestaña Línea temporal del mundo." }
+character_title = { en = "Where {name} belongs in the story", es = "Dónde está {name} en la historia" }
+character_help = { en = "Tick the moments this character belongs to, and what they are doing then (empty = their usual scenario). New chats only offer them at those moments.", es = "Marca los momentos a los que pertenece este personaje y qué hace entonces (vacío = su escenario de siempre). Los chats nuevos solo lo ofrecen en esos momentos." }
+any_moment = { en = "None ticked: they fit in any moment.", es = "Ninguno marcado: encaja en cualquier momento." }
+only_these = { en = "Only in {n} moment(s).", es = "Solo en {n} momento(s)." }
+scenario_help = { en = "What they are doing at this moment", es = "Qué hace en este momento" }
+
+[ui.appearance]
+saved = { en = "Appearance saved", es = "Apariencia guardada" }
+proposal = { en = "Reader's proposal: {n} aspects. Review them and press Save.", es = "Propuesta del lector: {n} aspectos. Revísalos y pulsa Guardar." }
+portrait = { en = "Current portrait", es = "Retrato actual" }
+no_portrait = { en = "No portrait yet", es = "Sin retrato todavía" }
+scene = { en = "Optional scene (e.g. in the lab, at night)", es = "Escena opcional (p. ej. en el laboratorio, de noche)" }
+painting = { en = "Painting…", es = "Pintando…" }
+generate = { en = "Generate portrait", es = "Generar retrato" }
+references = { en = "References ({n})", es = "Referencias ({n})" }
+delete_reference = { en = "Delete reference", es = "Borrar referencia" }
+delete_reference_confirm = { en = "Delete this reference? The aspects already described stay.", es = "¿Borrar esta referencia? Los aspectos ya descritos se mantienen." }
+deleting = { en = "Deleting…", es = "Borrando…" }
+add = { en = "Add", es = "Añadir" }
+describe = { en = "Describe with vision ({n})", es = "Describir con visión ({n})" }
+describing = { en = "Describing with vision…", es = "Describiendo con visión…" }
+merge = { en = "Add to the current aspects (otherwise they are replaced)", es = "Añadir a los aspectos actuales (si no, los sustituye)" }
+reader_help = { en = "The reader looks at all the references at once. Its proposal shows up on the right and is not saved until you press Save.", es = "El lector mira todas las referencias a la vez. Su propuesta aparece a la derecha y no se guarda hasta que pulses Guardar." }
+canonical = { en = "Canonical appearance", es = "Apariencia canónica" }
+canonical_help = { en = "The character's visual truth: it is used for their portraits and they know it as «your appearance».", es = "Es la verdad visual del personaje: se usa en sus retratos y lo conoce como «tu aspecto»." }
+proposal_pending = { en = "Reader's proposal, not saved · reload the tab to discard it.", es = "Propuesta del lector sin guardar · descártala recargando la pestaña." }
+aspect = { en = "Aspect", es = "Aspecto" }
+add_aspect = { en = "Aspect", es = "Aspecto" }
+description = { en = "Description", es = "Descripción" }
+importance = { en = "Importance", es = "Importancia" }
+importance_value = { en = "importance {n}%", es = "importancia {n}%" }
+no_aspects = { en = "No aspects. Add a reference or write them by hand.", es = "Sin aspectos. Añade una referencia o escríbelos a mano." }
+prompt = { en = "Prompt used for painting", es = "Prompt que se usa para pintar" }
+seen_by_title = { en = "How others see them", es = "Cómo le ven los demás" }
+nobody = { en = "Nobody keeps a visual impression of {name} yet.", es = "Nadie guarda todavía una impresión visual de {name}." }
+seen_by = { en = "According to {who}", es = "Según {who}" }
+seen_help = { en = "These impressions live in each one's private memory; edit them from their graph (Aspect nodes).", es = "Estas impresiones viven en la memoria privada de cada uno; edítalas desde su grafo (nodos de tipo Aspecto)." }
+
+[ui.models]
+title = { en = "Models", es = "Modelos" }
+intro = { en = "They load by themselves with the first message and are released when the app closes. The configuration is in {file}.", es = "Se cargan solos al enviar el primer mensaje y se liberan al cerrar la app. La configuración está en {file}." }
+actor = { en = "Actor (speaks as the characters)", es = "Actor (habla como los personajes)" }
+curator = { en = "Curator (writes into memory)", es = "Curador (escribe en la memoria)" }
+reader = { en = "Reader (describes reference images)", es = "Lector (describe las imágenes de referencia)" }
+no_model = { en = "no model", es = "sin modelo" }
+with_vision = { en = "with vision", es = "con visión" }
+without_vision = { en = "without vision", es = "sin visión" }
+vram = { en = "≈{mb} MB of VRAM", es = "≈{mb} MB de VRAM" }
+loaded = { en = "loaded", es = "cargado" }
+idle = { en = "idle", es = "en espera" }
+curator_shared = { en = "The curator shares the actor's server (curator.model is empty in the configuration).", es = "El curador comparte el servidor del actor (curator.model vacío en la configuración)." }
+vision_off = { en = "Vision disabled", es = "Visión desactivada" }
+vision_off_help = { en = "llama-server could not load the mmproj ({error}). Chat works without images; update llama.cpp to get vision back.", es = "llama-server no pudo cargar el mmproj ({error}). El chat funciona sin imágenes; actualiza llama.cpp para recuperar la visión." }
+images = { en = "Images", es = "Imágenes" }
+image_ready = { en = "Ready: {info}", es = "Listo: {info}" }
+image_unavailable = { en = "Unavailable: {info}", es = "No disponible: {info}" }
+free_gpu = { en = "Free the GPU (stop models)", es = "Liberar GPU (detener modelos)" }

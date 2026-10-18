@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpBatch",
+  "description": "Output of the memory curator. Equivalent to memory_ops.gbnf (for Ollama `format` or `response_format` json_schema).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ops"],
+  "properties": {
+    "ops": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["op", "ref", "kind", "label", "content", "weight", "valence"],
+            "properties": {
+              "op": { "const": "create_node" },
+              "ref": { "type": "string", "pattern": "^\\$[a-z0-9_]{1,12}$" },
+              "kind": { "$ref": "#/$defs/nodeKind" },
+              "label": { "type": "string", "minLength": 1, "maxLength": 48 },
+              "content": { "type": "string", "minLength": 1, "maxLength": 240 },
+              "weight": { "$ref": "#/$defs/unit" },
+              "valence": { "type": "number", "minimum": -1, "maximum": 1 }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["op", "target"],
+            "properties": {
+              "op": { "const": "update_node" },
+              "target": { "$ref": "#/$defs/nodeRef" },
+              "label": { "type": "string", "minLength": 1, "maxLength": 48 },
+              "content": { "type": "string", "minLength": 1, "maxLength": 240 },
+              "weight_delta": { "$ref": "#/$defs/delta" },
+              "valence_delta": { "$ref": "#/$defs/delta" }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["op", "source", "target", "kind", "weight"],
+            "properties": {
+              "op": { "const": "link" },
+              "source": { "$ref": "#/$defs/nodeRef" },
+              "target": { "$ref": "#/$defs/nodeRef" },
+              "kind": { "$ref": "#/$defs/edgeKind" },
+              "weight": { "$ref": "#/$defs/unit" }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["op", "source", "target", "delta"],
+            "properties": {
+              "op": { "const": "reinforce" },
+              "source": { "$ref": "#/$defs/nodeRef" },
+              "target": { "$ref": "#/$defs/nodeRef" },
+              "delta": { "$ref": "#/$defs/delta" }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["op", "target"],
+            "properties": {
+              "op": { "const": "forget" },
+              "target": { "$ref": "#/$defs/nodeRef" }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["op", "source", "target"],
+            "properties": {
+              "op": { "const": "close_edge" },
+              "source": { "$ref": "#/$defs/nodeRef" },
+              "target": { "$ref": "#/$defs/nodeRef" }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "nodeRef": {
+      "anyOf": [
+        { "type": "integer", "minimum": 0 },
+        { "type": "string", "pattern": "^\\$[a-z0-9_]{1,12}$" }
+      ]
+    },
+    "nodeKind": {
+      "enum": ["trait", "emotion", "value", "goal", "episodic_memory", "semantic_fact", "entity", "place", "topic", "character", "faction", "lore", "event", "appearance", "concept"]
+    },
+    "edgeKind": {
+      "enum": ["composes", "involves", "related_to", "causes", "precedes", "evokes", "knows", "contradicts"]
+    },
+    "unit": { "type": "number", "minimum": 0, "maximum": 1 },
+    "delta": { "type": "number", "minimum": -0.99, "maximum": 0.99 }
+  }
+}

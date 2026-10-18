@@ -1,0 +1,27 @@
+[package]
+name = "memory-core"
+description = "In-memory GraphRAG engine for characters: episodic graph + personality tree, spreading activation and binary rkyv persistence."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = ["llm"]
+# HTTP client for llama-server / Ollama and the background consolidation worker.
+llm = ["dep:reqwest", "dep:tokio"]
+
+[dependencies]
+i18n = { path = "../i18n" }
+petgraph.workspace = true
+rkyv.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+parking_lot.workspace = true
+toml = "1"
+reqwest = { workspace = true, optional = true }
+tokio = { workspace = true, optional = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["rt-multi-thread", "net", "io-util"] }

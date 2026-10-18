@@ -1,0 +1,20 @@
+[package]
+name = "chats-cli"
+description = "Chats test CLI: models, world seeding, chat with memory and images."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "chats"
+path = "src/main.rs"
+
+[dependencies]
+i18n = { path = "../i18n" }
+memory-core = { path = "../memory-core" }
+model-hub = { path = "../model-hub" }
+serde.workspace = true
+serde_json.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "io-std", "io-util", "signal", "sync"] }
+toml = "1"

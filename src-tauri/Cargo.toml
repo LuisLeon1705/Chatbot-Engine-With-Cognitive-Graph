@@ -1,0 +1,25 @@
+[package]
+name = "chats-app"
+description = "Chats: desktop app (Tauri v2) to talk with characters that have a graph memory."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "chats-app"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2.6", features = [] }
+
+[dependencies]
+tauri = { version = "2.11", features = [] }
+i18n = { path = "../crates/i18n" }
+memory-core = { path = "../crates/memory-core" }
+model-hub = { path = "../crates/model-hub" }
+serde.workspace = true
+serde_json.workspace = true
+parking_lot.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "sync"] }
+base64 = "0.22"

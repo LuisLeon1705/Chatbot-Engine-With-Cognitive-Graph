@@ -1,0 +1,37 @@
+# GBNF grammar of the memory curator (llama-server: the "grammar" field).
+# Forces {"ops":[...]} with 0–8 operations, fields in a fixed order and bounded values.
+# Keep it in sync with memory_ops.schema.json and ops.rs.
+
+root      ::= "{" ws "\"ops\"" colon "[" ws ops? ws "]" ws "}"
+ops       ::= op ( sep op ){0,7}
+op        ::= create | update | link | reinforce | forget | close
+
+create    ::= "{" ws "\"op\"" colon "\"create_node\"" sep "\"ref\"" colon newref sep "\"kind\"" colon nodekind sep "\"label\"" colon label sep "\"content\"" colon text sep "\"weight\"" colon unit sep "\"valence\"" colon signed ws "}"
+update    ::= "{" ws "\"op\"" colon "\"update_node\"" sep "\"target\"" colon noderef ( sep "\"label\"" colon label )? ( sep "\"content\"" colon text )? ( sep "\"weight_delta\"" colon delta )? ( sep "\"valence_delta\"" colon delta )? ws "}"
+link      ::= "{" ws "\"op\"" colon "\"link\"" sep "\"source\"" colon noderef sep "\"target\"" colon noderef sep "\"kind\"" colon edgekind sep "\"weight\"" colon unit ws "}"
+reinforce ::= "{" ws "\"op\"" colon "\"reinforce\"" sep "\"source\"" colon noderef sep "\"target\"" colon noderef sep "\"delta\"" colon delta ws "}"
+forget    ::= "{" ws "\"op\"" colon "\"forget\"" sep "\"target\"" colon noderef ws "}"
+# A link that stopped being true: it is kept as the past, it is not deleted.
+close     ::= "{" ws "\"op\"" colon "\"close_edge\"" sep "\"source\"" colon noderef sep "\"target\"" colon noderef ws "}"
+
+# Existing node (number) or one created in this batch ("$a").
+noderef   ::= id | newref
+id        ::= [0-9] | [1-9] [0-9]{1,8}
+newref    ::= "\"$" [a-z0-9_] [a-z0-9_]{0,11} "\""
+
+# No roots (personality_root, world_root): the curator cannot create them.
+nodekind  ::= "\"trait\"" | "\"emotion\"" | "\"value\"" | "\"goal\"" | "\"episodic_memory\"" | "\"semantic_fact\"" | "\"entity\"" | "\"place\"" | "\"topic\"" | "\"character\"" | "\"faction\"" | "\"lore\"" | "\"event\"" | "\"appearance\"" | "\"concept\""
+edgekind  ::= "\"composes\"" | "\"involves\"" | "\"related_to\"" | "\"causes\"" | "\"precedes\"" | "\"evokes\"" | "\"knows\"" | "\"contradicts\""
+
+unit      ::= "0" | "1" | "1.0" | "0." [0-9] [0-9]?
+signed    ::= "-"? unit
+delta     ::= "-"? ( "0" | "0." [0-9] [0-9]? )
+
+label     ::= "\"" char{1,48} "\""
+text      ::= "\"" char{1,240} "\""
+char      ::= [^"\\\x7F\x00-\x1F] | "\\" ( ["\\/bfnrt] | "u" [0-9a-fA-F]{4} )
+
+sep       ::= ws "," ws
+colon     ::= ws ":" ws
+# Bounded whitespace: keeps a small model from looping on line breaks.
+ws        ::= | " " | "\n" [ \t]{0,20}

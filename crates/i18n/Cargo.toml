@@ -1,0 +1,11 @@
+[package]
+name = "i18n"
+description = "English/Spanish dictionary for everything Chats shows to people or sends to the models."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+serde.workspace = true
+toml = "1"

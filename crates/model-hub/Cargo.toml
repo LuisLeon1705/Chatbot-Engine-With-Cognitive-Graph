@@ -1,0 +1,22 @@
+[package]
+name = "model-hub"
+description = "Registry of local models (models/{llm,vision,mmproj,diffusion}), mmproj pairing, llama-server supervisor and image generation with stable-diffusion.cpp."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+parking_lot.workspace = true
+tokio = { workspace = true, features = ["process", "io-util"] }
+reqwest.workspace = true
+toml = "1"
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["rt-multi-thread"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Security", "Win32_System_JobObjects"] }

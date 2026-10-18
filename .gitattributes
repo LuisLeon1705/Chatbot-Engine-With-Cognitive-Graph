@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.mem binary
+*.gguf binary
+*.png binary
